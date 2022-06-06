@@ -1,0 +1,29 @@
+<h2>Piedra Papel o Tijeras</h2>
+<br>
+<Label>Elija una opcion: </Label>
+<br>
+<!--input type="number" [(ngModel)]="this.numeroUsuario"-->
+<input type="radio" name="opcion" value=1 [(ngModel)]="this.numeroUsuario"> Piedra
+<input type="radio" name="opcion" value=2 [(ngModel)]="this.numeroUsuario"> Papel
+<input type="radio" name="opcion" value=3 [(ngModel)]="this.numeroUsuario"> Tijera
+
+
+<button  *ngIf="permitir=='SI'" name="Jugar"  (click)="verificar()" > Jugar </button>
+
+
+<br>
+<div *ngIf="verificado=='SI'">
+    <label>
+        <b>Usuario dice </b> {{this.textUsuario}} 
+        <br>
+        <b>Maquina dice </b> {{this.textMaquina}}  
+        <br>
+        <b>USUARIO</b> {{this.puntosUsu}} - {{this.puntosMaq}} <b>MAQUINA</b> 
+    </label>
+    <br>
+</div>
+<div *ngIf="permitir=='NO'">
+    <h3>{{this.textGanador}}</h3>
+    <button name="NuevoJuego" (click)="Nuevo()" > Nueva Partida </button>
+</div>
+<br>

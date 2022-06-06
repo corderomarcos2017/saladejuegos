@@ -1,0 +1,23 @@
+<body class="text-center">
+    <main class="form-signin">
+      <div>
+        <img class="mb-4" src="./assets/LOGO.jpg" alt="" width="72" height="72">      
+        <h1 class="h3 mb-3 fw-normal">Registrarse</h1>
+  
+        <div class="form-floating">
+          <input type="email" class="form-control" id="floatingInput" [(ngModel)]="auxNombre"  placeholder="nombre@example.com">
+          <label for="floatingInput">Direccion de correo</label>
+        </div>
+        <div class="form-floating">
+          <input type="password" class="form-control" id="floatingPassword" [(ngModel)]="auxClave1"  placeholder="Ingrese Password">
+          <label for="floatingPassword">Contraseña</label>
+        </div>
+        <div class="form-floating">
+            <input type="password" class="form-control" id="floatingPassword2" [(ngModel)]="auxClave2" placeholder="Repetir Password">
+            <label for="floatingPassword">Repetir</label>
+        </div>
+        <button class="w-100 btn btn-lg btn-primary" (click)="registrar()" >Guardar</button>
+        <p class="mt-5 mb-3 text-muted">&copy; 2022</p>
+      </div>
+    </main>
+  </body>

@@ -1,0 +1,17 @@
+<h1>Adivinador</h1>
+<button (click)="IniciarJuego()" >Iniciar Juego</button> 
+<label *ngIf="this.numero>0"> {{this.numero}}</label>
+
+<br><br>
+
+Elegir un numero del 1 al 100 
+<input type="number" id ="idValor" [(ngModel)]="valor">
+<button (click)="verificar()" >Jugar</button>
+
+<p *ngIf="this.intentos>0">Intento nro: {{this.intentos}}</p>
+
+
+<p *ngIf="this.estado==1">Ganaste</p>
+<p *ngIf="this.estado==2">Te pasaste</p>
+<p *ngIf="this.estado==3">Te Falta</p>
+

@@ -1,0 +1,26 @@
+<head>
+    <meta charset="UTF-8">
+    <style>
+        .boton {
+            width: 220px;
+            height: 50px;
+            margin: 10px;
+        }
+    </style>
+</head>
+
+
+<h2>SALA DE JUEGOS</h2>
+<Label>Jugador <b>{{MiUsuario}}</b> </Label>
+<br><br> 
+<button routerLink="/juegos/ppt"        class="boton">Piedra Papel o Tijeras</button>
+<button routerLink="/juegos/tateti"     class="boton">Tateti</button>
+<button routerLink="/juegos/Adivinador" class="boton">Adivinador</button>
+<button routerLink="/juegos/Ahorcado"   class="boton">Ahorcado </button>
+<button routerLink="/juegos/Sumar"      class="boton">Sumar </button>
+<br><br> 
+<!--button routerLink="/juegos/ListadoResultado" >ListadoResultado</button>
+<br><br> 
+<button routerLink="/juegos/AdivinaConListado" >AdivinaConListado</button-->
+
+<router-outlet></router-outlet>

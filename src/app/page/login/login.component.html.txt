@@ -1,0 +1,10 @@
+<p>login works!</p>
+<br>
+<label>Mostrando con llaves "{{miUsuario.nombre}}" : </label>
+{{miUsuario.nombre}}
+<br>
+<input type="text" [(ngModel)]="miUsuario.nombre">
+<br>
+<input type="text" [(ngModel)]="miUsuario.clave">
+<br>
+<input type="button" (click)="mostrar()" value="Mostrar">
