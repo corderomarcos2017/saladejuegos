@@ -20,26 +20,8 @@ export class LoginComponent implements OnInit {
     this.auxClave="";
   }
   mostrar(){
-    //Recupero el valor de lamatriz JSON
-    var listadoUsuarios=[];
-    var encontrado = 0;
-    //Recupero todos los datos del localstorage
-    listadoUsuarios = JSON.parse(localStorage.getItem("listado") || "{}");
-    console.info("Matriz : ", listadoUsuarios);
-    if(Object.entries(listadoUsuarios).length!=0){
-      //recorro todo el contenido de la matriz
-      listadoUsuarios.forEach((element: any): void => {
-        //Si el nombre de usuario ingresado es igual al guardado 
-        if(element.nombre==this.auxNombre){
-          //Si la contraseña es igual a la guardada
-          if(element.clave==this.auxClave){
-            encontrado = 1;
-          } 
-        }
-      });
-    } 
-
-    if (encontrado==1){
+    
+    if (this.miUsuario.encontrarUsuario(this.auxNombre,this.auxClave)=="SI"){
      
       this.miServicio.UsuarioActual=this.auxNombre;
       this.router.navigate(["/juegos"]);

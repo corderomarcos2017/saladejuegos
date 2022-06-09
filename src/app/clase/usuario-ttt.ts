@@ -15,14 +15,14 @@ export class UsuarioTTT {
         if (localStorage.getItem("listadoTTT") === null) 
         {
             //Creo e inicializo la matriz por unica vez
-             listadoUsuariosTTT = [];
+            listadoUsuariosTTT = [];
         }
         else 
         {
             //Recupero el valor de lamatriz JSON
             listadoUsuariosTTT = JSON.parse(localStorage.getItem("listadoTTT") || "{}");
         }
-        console.log("listadoUsuarioTTT",listadoUsuariosTTT);
+        //console.log("listadoUsuarioTTT",listadoUsuariosTTT);
         //Agrego un nuevo Registro a la matriz
         listadoUsuariosTTT.push(this);
 

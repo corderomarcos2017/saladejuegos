@@ -8,9 +8,8 @@ import { AuthService } from 'src/app/clase/servicios/auth.service';
   styleUrls: ['./tateti.component.css']
 })
 export class TatetiComponent implements OnInit {
-  posi=[['-','-','-'],
-        ['-','-','-'],
-        ['-','-','-']];
+
+  posi=['-','-','-','-','-','-','-','-','-'];
 
   Jugador:string;
   hayganador:string;
@@ -21,11 +20,19 @@ export class TatetiComponent implements OnInit {
     this.elGanadorEs="";
     
    }
-  botonPresionado(fila:number,columna:number) {
-    if (this.posi[fila][columna]=='-') {
+   Nuevo(){
+    this.Jugador="X";
+    this.hayganador="NO";
+    this.elGanadorEs="";
+    this.posi=['-','-','-','-','-','-','-','-','-'];
+   // this.miRouter.navigate(["/juegos/ppt"]);
+}
+   /*-----------------------------------------------------------------------------------*/
+  botonPresionado(fila:number) {
+    if (this.posi[fila]=='-') {
       
       //Asignar la letra X u O a la fila y columna correspondiente
-      this.posi[fila][columna]=this.Jugador;
+      this.posi[fila]=this.Jugador;
       
       if(this.verificarGanador("X")=="X") this.elGanadorEs="Jugador X";
       
@@ -36,6 +43,7 @@ export class TatetiComponent implements OnInit {
       //this.cambiarJugador();
     }
   }
+  /*-----------------------------------------------------------------------------------*/
   cambiarJugador(){
     if(this.Jugador=="X"){
       this.Jugador="O";
@@ -43,48 +51,44 @@ export class TatetiComponent implements OnInit {
       this.Jugador="X";
     }
   } 
+  /*-----------------------------------------------------------------------------------*/
   iniciar() {
-    for(let f=0;f<3;f++)
-      for(let c=0;c<3;c++)
-        this.posi[f][c]='-';
+    for(let f=0;f<9;f++)
+        this.posi[f]='-';
   }
+  /*-----------------------------------------------------------------------------------*/
   JuegaMaquina() {
     let salir="NO";
-    if(this.posi[1][1]=='-'){
-      this.posi[1][1]='O';
+    if(this.posi[4]=='-'){
+      this.posi[4]='O';
     } else {
-      for(let f=0;f<3;f++){
-        for(let c=0;c<3;c++){
-          if(this.posi[f][c]=='-'){
-            this.posi[f][c]='O';
+      for(let f=0;f<9;f++){
+          if(this.posi[f]=='-'){
+            this.posi[f]='O';
             salir="SI";
             break;
           }
-        }
-        if(salir=="SI"){
-          break;
-        }
       }
     }
   }
+  /*-----------------------------------------------------------------------------------*/
   verificarGanador(valor: string) {
     let retorno = "";
-    if (this.posi[0][0]==valor && this.posi[0][1]==valor && this.posi[0][2]==valor ||
-        this.posi[1][0]==valor && this.posi[1][1]==valor && this.posi[1][2]==valor ||
-        this.posi[2][0]==valor && this.posi[2][1]==valor && this.posi[2][2]==valor ||
-        this.posi[0][0]==valor && this.posi[1][0]==valor && this.posi[2][0]==valor ||
-        this.posi[0][1]==valor && this.posi[1][1]==valor && this.posi[2][1]==valor ||
-        this.posi[0][2]==valor && this.posi[1][2]==valor && this.posi[2][2]==valor ||
-        this.posi[0][0]==valor && this.posi[1][1]==valor && this.posi[2][2]==valor ||
-        this.posi[0][2]==valor && this.posi[1][1]==valor && this.posi[2][0]==valor) 
+    if (this.posi[0]==valor && this.posi[1]==valor && this.posi[2]==valor ||
+        this.posi[3]==valor && this.posi[4]==valor && this.posi[5]==valor ||
+        this.posi[6]==valor && this.posi[7]==valor && this.posi[8]==valor ||
+        this.posi[0]==valor && this.posi[3]==valor && this.posi[6]==valor ||
+        this.posi[1]==valor && this.posi[4]==valor && this.posi[7]==valor ||
+        this.posi[2]==valor && this.posi[5]==valor && this.posi[8]==valor ||
+        this.posi[0]==valor && this.posi[4]==valor && this.posi[8]==valor ||
+        this.posi[2]==valor && this.posi[4]==valor && this.posi[6]==valor) 
     {
         retorno = valor;  
         this.hayganador="SI"; 
     }
-   
     return retorno;
   }
-  
+  /*-----------------------------------------------------------------------------------*/
   ngOnInit(): void {
   }
 

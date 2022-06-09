@@ -10,25 +10,27 @@
 <h3>TA-TE-TI</h3>
 <p>{{this.miServicio.UsuarioActual}} es el jugardor X</p>
 <div>
-    <button (click)="botonPresionado(0,0)" class="boton">{{posi[0][0]}}</button>
-    <button (click)="botonPresionado(0,1)" class="boton">{{posi[0][1]}}</button>
-    <button (click)="botonPresionado(0,2)" class="boton">{{posi[0][2]}}</button>
+    <button (click)="botonPresionado(0)" class="boton">{{posi[0]}}</button>
+    <button (click)="botonPresionado(1)" class="boton">{{posi[1]}}</button>
+    <button (click)="botonPresionado(2)" class="boton">{{posi[2]}}</button>
 </div>
 <div>
-    <button (click)="botonPresionado(1,0)" class="boton">{{posi[1][0]}}</button>
-    <button (click)="botonPresionado(1,1)" class="boton">{{posi[1][1]}}</button>
-    <button (click)="botonPresionado(1,2)" class="boton">{{posi[1][2]}}</button>
+    <button (click)="botonPresionado(3)" class="boton">{{posi[3]}}</button>
+    <button (click)="botonPresionado(4)" class="boton">{{posi[4]}}</button>
+    <button (click)="botonPresionado(5)" class="boton">{{posi[5]}}</button>
 </div>
 <div>
-    <button (click)="botonPresionado(2,0)" class="boton">{{posi[2][0]}}</button>
-    <button (click)="botonPresionado(2,1)" class="boton">{{posi[2][1]}}</button>
-    <button (click)="botonPresionado(2,2)" class="boton">{{posi[2][2]}}</button>
+    <button (click)="botonPresionado(6)" class="boton">{{posi[6]}}</button>
+    <button (click)="botonPresionado(7)" class="boton">{{posi[7]}}</button>
+    <button (click)="botonPresionado(8)" class="boton">{{posi[8]}}</button>
 </div>
 <div *ngIf="hayganador=='SI'">
     <label>
         <b>El ganador es : </b> {{this.elGanadorEs}} 
     </label>
-    <br>
 
+    <br>
+    <button name="NuevoJuego" (click)="Nuevo()" > Nueva Partida </button>
 </div>
+
 

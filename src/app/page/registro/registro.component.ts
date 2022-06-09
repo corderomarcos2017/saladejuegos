@@ -12,7 +12,7 @@ export class RegistroComponent implements OnInit {
   auxNombre: string;
   auxClave1: string;
   auxClave2: string;
-
+  encontrado: string;
   miUsuario: Usuarios;
   
   constructor(public router:Router, public miServicio:AuthService) { 
@@ -20,16 +20,58 @@ export class RegistroComponent implements OnInit {
     this.auxClave1="";
     this.auxClave2="";
     this.auxNombre="";
+    this.encontrado="NO";
+  }
+  limpiarMensaje(){
+    if(this.encontrado=="SI"){
+      this.encontrado = "NO";
+      console.log("encontro:"+this.encontrado);     
+    }
+
   }
   registrar(){
     if(this.auxClave1==this.auxClave2)
     {
+
       this.miUsuario.nombre=this.auxNombre;
       this.miUsuario.clave=this.auxClave1;
-      this.miUsuario.guardar();
-      //document.cookie="USUARIO="+this.auxNombre; //Esto era para utilizar una Cookie, ya no lo uso
-      this.miServicio.UsuarioActual=this.auxNombre;
-      this.router.navigate(["/juegos"]);
+
+      var listadoUsuarios=[];
+      //Recupero todos los datos del localstorage
+      listadoUsuarios = JSON.parse(localStorage.getItem("listado") || "{}");
+      console.info("Matriz : ", listadoUsuarios);
+      if(Object.entries(listadoUsuarios).length!=0){
+        //recorro todo el contenido de la matriz
+        listadoUsuarios.forEach((element: any): void => {
+          //Si el nombre de usuario ingresado es igual al guardado 
+          if(element.nombre==this.auxNombre){
+            //Si la contraseña es igual a la guardada
+            if(element.clave==this.auxClave1){
+              this.encontrado = "SI";
+            } 
+          }
+        });
+      } 
+  
+
+      if (this.encontrado=="SI"){
+        this.auxNombre="";
+        this.auxClave1="";
+        this.auxClave2="";
+        document.getElementById("floatingInput")?.focus();    
+
+      }else {
+        this.miUsuario.guardar();
+        this.miServicio.UsuarioActual=this.auxNombre;
+        this.router.navigate(["/juegos"]);
+
+      }
+
+
+
+
+
+
     }
     else 
     {

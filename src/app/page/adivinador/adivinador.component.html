@@ -1,17 +1,29 @@
 <h1>Adivinador</h1>
-<button (click)="IniciarJuego()" >Iniciar Juego</button> 
-<label *ngIf="this.numero>0"> {{this.numero}}</label>
+<button *ngIf="this.numero==0" (click)="IniciarJuego()"  >Iniciar Juego</button> 
+<label  *ngIf="this.numero>0"> EL JUEGO HA INICIADO !!!{{this.numero}}</label>
 
 <br><br>
 
-Elegir un numero del 1 al 100 
-<input type="number" id ="idValor" [(ngModel)]="valor">
-<button (click)="verificar()" >Jugar</button>
+<div *ngIf="this.intentos<this.intentosMax">
+    <p *ngIf="this.numero>0">Intento: {{this.intentos+1}} - Maximo: {{this.intentosMax}}</p>
+    <label  *ngIf="this.numero>0">Elegir un numero del 1 al 100 </label> 
+    <input  *ngIf="this.numero>0" type="number" id ="idValor" [(ngModel)]="valor">
+    <button *ngIf="this.numero>0" (click)="verificar()" >Jugar</button>
+</div>
 
-<p *ngIf="this.intentos>0">Intento nro: {{this.intentos}}</p>
 
 
-<p *ngIf="this.estado==1">Ganaste</p>
-<p *ngIf="this.estado==2">Te pasaste</p>
-<p *ngIf="this.estado==3">Te Falta</p>
 
+<BR>
+<p *ngIf="this.estado==1">Ganaste la partida... FELICITACIONES!!!</p>
+<p *ngIf="this.estado==2">Te pasaste del numero ...</p>
+<p *ngIf="this.estado==3">Te Falta para llegar al numero...</p>
+
+<div *ngIf="this.intentos>=this.intentosMax">
+    <label>
+        <b>El ganador es : </b> {{this.elGanadorEs}} 
+    </label>
+
+    <br>
+    <button name="NuevoJuego" (click)="Nuevo()" > Nueva Partida </button>
+</div>
