@@ -18,6 +18,7 @@ import { AhorcadoComponent } from './page/ahorcado/ahorcado.component';
 import { SumarComponent } from './page/sumar/sumar.component';
 import { LogoutComponent } from './page/logout/logout.component';
 import { QuienSoyComponent } from './page/quien-soy/quien-soy.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { QuienSoyComponent } from './page/quien-soy/quien-soy.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     FormsModule
   ],
   providers: [],

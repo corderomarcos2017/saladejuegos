@@ -1,1 +1,28 @@
-<p>ahorcado works!</p>
+<h1>Ahorcado</h1>
+<!--
+ <button *ngIf="this.valor==0" (click)="IniciarJuego()">Iniciar Juego</button> 
+<label  *ngIf="this.valor>0"> EL JUEGO HA INICIADO !!!</label>   
+-->
+<button (click)="IniciarJuego()" >Iniciar Juego </button>
+<br>
+<button (click)=" obtenerPalabra()" >Obtener Palabra </button>
+<br>
+
+<div *ngIf="this.intentos<this.intentosMax">
+    <p >Intento: {{this.intentos+1}} - Maximo: {{this.intentosMax}}</p>
+    <label >Palabra secreta a encontrar :</label>
+    <label >{{this.palabra}}</label>
+    <label >{{this.cantidadLetras()}}</label>
+    <label >{{this.guiones}}</label>
+    <br> 
+    
+    <label >Elegir una Letra:</label>
+    <select name="miselect" [(ngModel)]="seleccionado">
+        <option [value]="item" *ngFor='let item of abc'> {{item}} </option>
+    </select>    
+    <button (click)="verificar()" >Jugar</button>
+</div>
+
+
+<br>
+<img src={{this.miImagen}} width="200">

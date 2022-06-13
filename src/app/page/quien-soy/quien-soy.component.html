@@ -1,7 +1,26 @@
-<h3>Quien soy!!!!</h3>
+<div class="container mt-5">
+    <div class="row d-flex justify-content-center">
+        <div class="col-md-7">
+            <div class="card p-3 py-4">
+                <div class="text-center">
+                <h3>Quien soy!!!!</h3>
 
-<label>Apellido:</label><label><b>CORDERO</b></label><BR>
-<label>Nombre:</label><label><b>MARCOS</b></label><BR>
-<label>Teléfono</label><label><b>11 6123-5722</b></label><BR>
-<label>Mail:</label><label><b>corderomarcos2017@gmail.com</b></label><BR>  
-<img src="../../../assets/foto.jpg" alt="" width="500" height="400">  
+                    <img src="{{ githubPerson.avatar}}" width="300" class="rounded-circle"> 
+                </div>
+                <div class="text-center mt-3">
+                    <h5 class="mt-2 mb-0">{{githubPerson.nombre}}</h5>
+                    <div class="px-4 mt-1">
+                        <p >Trabajo de {{githubPerson.bio}}</p>
+                        <p >{{ githubPerson.login}}@gmail.com</p>
+                        <p >11 6123-5722</p>
+                    </div>
+                    <br>
+                    <div class="px-4 mt-1">
+                        <h5>JUEGO ELEGIDO </h5>
+                        <p class="fonts">Triangulos</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

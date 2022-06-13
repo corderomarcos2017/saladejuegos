@@ -22,7 +22,7 @@ export class UsuarioPPT {
             //Recupero el valor de lamatriz JSON
             listadoUsuariosPPT = JSON.parse(localStorage.getItem("listadoPPT") || "{}");
         }
-        console.log("listadoUsuarioPPT",listadoUsuariosPPT);
+        //console.log("listadoUsuarioPPT",listadoUsuariosPPT);
         //Agrego un nuevo Registro a la matriz
         listadoUsuariosPPT.push(this);
 
