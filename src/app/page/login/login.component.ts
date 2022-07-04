@@ -13,7 +13,7 @@ export class LoginComponent implements OnInit {
   auxNombre:string;
   auxClave:string;
 
-  constructor(public router:Router, private miServicio:AuthService) //Es importante agregar los parametros para que pueda hacer router
+  constructor(public router:Router, public miServicio:AuthService) //Es importante agregar los parametros para que pueda hacer router
   {
     this.miUsuario=new Usuarios();
     this.auxNombre="";
@@ -23,7 +23,25 @@ export class LoginComponent implements OnInit {
     
     if (this.miUsuario.encontrarUsuario(this.auxNombre,this.auxClave)=="SI"){
      
-      this.miServicio.UsuarioActual=this.auxNombre;
+      let listadoUsuarios=[];
+      //Recupero todos los datos del localstorage
+      listadoUsuarios = JSON.parse(localStorage.getItem("listado") || "{}");
+      //recorro todo el contenido de la matriz
+      listadoUsuarios.forEach((element: any): void => {
+          //Si el nombre de usuario ingresado es igual al guardado 
+          if(element.nombre==this.auxNombre){
+            this.miServicio.UsuarioActual=element.nombre;
+            this.miServicio.clave=element.clave;
+            this.miServicio.ppt=element.ppt;
+            this.miServicio.ttt=element.ttt;
+            this.miServicio.adv=element.adv;
+            this.miServicio.aho=element.aho;
+            this.miServicio.tri=element.tri;
+            console.info("miServicio",this.miServicio);
+            console.info("element",element);
+          }
+      });
+
       this.router.navigate(["/juegos"]);
     }else {
       this.router.navigate(["/registro"]);

@@ -1,0 +1,44 @@
+<h1 align="CENTER"> SUSCRIPCIONES PREMIUN</h1>
+<br>
+
+<!--label for="">Buscar por el usuario: </label>
+<input type="text" name="txtUsuario" [(ngModel)]="usuarioBuscado">
+<button (click)="Buscar()"  class="boton">Buscar</button--> 
+
+<!--select name="cboUsuario" [(ngModel)]="usuarioBuscado">
+    <option [value]="item" *ngFor='let item of listado'> {{item['nombre']}} </option>
+</select--> 
+<br> 
+
+<table border="1" ALIGN=CENTER >
+    <thead>
+        <tr ALIGN=CENTER >
+            <th colspan="6">Listado de Suscripciones x usuario</th>
+        </tr>
+
+        <tr ALIGN=CENTER>
+            <td style="width: 250px">USUARIO</td>
+            <td style="width: 160px">Piedra Papel o Tijetas</td>
+            <td style="width: 160px">TaTeTi</td>
+            <td style="width: 160px">Adivinador</td>
+            <td style="width: 160px">Ahorcado</td>
+            <td style="width: 160px">triangulos</td>
+            <td style="width: 160px">Comando</td>
+        </tr>
+
+    </thead>
+    <tbody>
+        
+    <tr *ngFor="let elemento of this.listado" ALIGN=CENTER>
+
+        <td ALIGN=LEFT>{{elemento['nombre']}}</td>
+        
+        <td>{{elemento['ppt']}}</td>
+        <td>{{elemento['ttt']}}</td>
+        <td>{{elemento['adv']}}</td>
+        <td>{{elemento['aho']}}</td>
+        <td>{{elemento['tri']}}</td>
+        <td><button (click)="Ejecutar(elemento)"  class="boton">ALTA SUSCRIPCIONES</button></td>
+    </tr>
+</tbody>
+</table>

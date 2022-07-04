@@ -1,0 +1,53 @@
+<body class="text-center">
+    <main class="form-signin">
+      <div>
+        <img class="mb-4" src="./assets/LOGO.jpg" alt="" width="72" height="72">      
+        <h1 class="h3 mb-3 fw-normal">Suscripcion - ALTAS </h1>
+  
+        <div class="form-floating">
+          <label for="floatingInput">Usuario : <b>{{this.miUsuario.nombre}}</b>  </label>
+          
+        </div>
+        <div class="form-floating">
+          
+          <select  name="optPPT" [(ngModel)]="this.miUsuario.ppt">
+              <option value="SI">SI</option>
+              <option value="NO">NO</option>
+          </select>
+          <label for="floatingInput">Piedra, Papel o Tijeras</label>
+        </div>
+        <div class="form-floating">
+         
+          <select  name="optTTT" [(ngModel)]="this.miUsuario.ttt">
+              <option value="SI">SI</option>
+              <option value="NO">NO</option>
+          </select>
+          <label for="floatingInput">TaTeTI</label>
+        </div>
+        <div class="form-floating">
+          <select  name="optADV" [(ngModel)]="this.miUsuario.adv">
+              <option value="SI">SI</option>
+              <option value="NO">NO</option>
+          </select>
+          <label for="floatingInput">Adivinador</label>
+        </div>
+        <div class="form-floating">
+          <select  name="optAHO" [(ngModel)]="this.miUsuario.aho">
+              <option value="SI">SI</option>
+              <option value="NO">NO</option>
+          </select>
+          <label for="floatingInput">Ahorcado</label>
+        </div>    
+        <div class="form-floating">
+          <select  name="optTRI" [(ngModel)]="this.miUsuario.tri">
+              <option value="SI">SI</option>
+              <option value="NO">NO</option>
+          </select>
+          <label for="floatingInput">Triangulos</label>
+        </div>             
+        <button class="w-100 btn btn-lg btn-primary" (click)="suscribir()" >Guardar</button>
+        <p class="mt-5 mb-3 text-muted">&copy; 2022</p>
+      </div>
+
+    </main>
+  </body>

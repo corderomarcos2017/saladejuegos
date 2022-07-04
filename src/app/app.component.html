@@ -67,11 +67,12 @@
 
         <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
           <li><a routerLink="/inicio"   routerLinkActive="active" class="nav-link px-2 text-white">Inicio</a></li>
-          <li *ngIf="this.miServicio.UsuarioActual==''" ><a routerLink="/ingreso"  routerLinkActive="active" class="nav-link px-2 text-white">Login</a></li>
+          <li *ngIf="this.miServicio.UsuarioActual==''" ><a routerLink="/ingreso" routerLinkActive="active" class="nav-link px-2 text-white">Login</a></li>
           <li *ngIf="this.miServicio.UsuarioActual==''"><a routerLink="/registro" routerLinkActive="active" class="nav-link px-2 text-white">Registrarse</a></li>
           <li *ngIf="this.miServicio.UsuarioActual!=''"><a routerLink="/egreso"   routerLinkActive="active" class="nav-link px-2 text-white">Logout</a></li>
-          <li><a routerLink="/juegos"   routerLinkActive="active" class="nav-link px-2 text-white">Juegos</a></li>
-          <li><a routerLink="/quiensoy"    routerLinkActive="active" class="nav-link px-2 text-white">Quien soy?</a></li>    
+          <li><a routerLink="/juegos"        routerLinkActive="active" class="nav-link px-2 text-white">Juegos</a></li>
+          <li><a routerLink="/quiensoy"      routerLinkActive="active" class="nav-link px-2 text-white">Quien soy?</a></li>   
+          <li><a routerLink="/Suscripcion" routerLinkActive="active" class="nav-link px-2 text-white">Suscripciones</a></li>  
           <!--li><a href="#" class="nav-link px-2 text-secondary">Home</a></li>
           <li><a href="#" class="nav-link px-2 text-white">Features</a></li>-->
         </ul>

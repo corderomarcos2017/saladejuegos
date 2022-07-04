@@ -1,1 +1,19 @@
-<p>sumar works!</p>
+<h1>FORMAR TRIANGULOS</h1>
+<label>Ingrese los 3 lados de un triangulo:</label>
+<br>
+<br>
+<label >Ingrese el 1er lado</label>
+<input type="number" [(ngModel)]="this.a">
+<br>
+<label >Ingrese el 2do lado</label>
+<input type="number" [(ngModel)]="this.b">
+<br>
+<label >Ingrese el 3er lado</label>
+<input type="number" [(ngModel)]="this.c">
+<br>
+<input *ngIf="estado==0" type="button" value="Resolver" (click)="comprobar()">
+
+<div *ngIf="estado!=0">
+    <h3  >El resultado es : {{this.resultado}}</h3>
+    <button name="NuevoJuego" (click)="Nuevo()" > Nueva Partida </button>
+</div>

@@ -19,6 +19,9 @@ import { SumarComponent } from './page/sumar/sumar.component';
 import { LogoutComponent } from './page/logout/logout.component';
 import { QuienSoyComponent } from './page/quien-soy/quien-soy.component';
 import { HttpClientModule } from '@angular/common/http';
+import { SuscripcionComponent } from './page/suscripcion/suscripcion.component';
+import { SuscripcionAltasComponent } from './page/suscripcion-altas/suscripcion-altas.component';
+import { NoestasuscriptoComponent } from './page/noestasuscripto/noestasuscripto.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +39,10 @@ import { HttpClientModule } from '@angular/common/http';
     AhorcadoComponent,
     SumarComponent,
     LogoutComponent,
-    QuienSoyComponent
+    QuienSoyComponent,
+    SuscripcionComponent,
+    SuscripcionAltasComponent,
+    NoestasuscriptoComponent
   ],
   imports: [
     BrowserModule,

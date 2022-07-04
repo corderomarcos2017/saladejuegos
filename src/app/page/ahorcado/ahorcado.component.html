@@ -1,28 +1,44 @@
-<h1>Ahorcado</h1>
-<!--
- <button *ngIf="this.valor==0" (click)="IniciarJuego()">Iniciar Juego</button> 
-<label  *ngIf="this.valor>0"> EL JUEGO HA INICIADO !!!</label>   
--->
-<button (click)="IniciarJuego()" >Iniciar Juego </button>
-<br>
-<button (click)=" obtenerPalabra()" >Obtener Palabra </button>
-<br>
+  <div class="">
+     <div class=" text-center container">
+        <h1 class="fw-light">AHORCADO</h1>
+    </div>
+    <div class="container">
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+        <div class="col">
+          <div class="card shadow-sm">
+            <div > 
+                <br>
+                <label >Intento fallidos: {{this.intentos}} - Maximo: {{this.intentosMax}}</label>
+                <br>
+                <label>La palabra secreta es:</label><label *ngFor="let item of guionesArray"> {{item}}, </label>
+                <br>
+                <label>Las letras elegidas hasta el momento son: </label><label><b>{{this.ingresada}}</b></label>
+                <br><br>
+                <div *ngIf="estado==0">
+                    <label >Elegir una Letra:</label>
+                    <input  *ngFor="let elemento of botonesArray" (click)="jugar(elemento)" 
+                           type="button" value="{{elemento}}" id = "{{elemento}}">  
+                    <br>   
+                     <!--button *ngFor="let elemento of botonesArray" (click)="jugar(elemento)"> {{elemento}} </button-->       
+                </div>
+                <div *ngIf="estado==1">
+                    <p>EL GANADOR ES EL JUGADOR {{this.miServicio.UsuarioActual}} !!!</p>
+                </div>
+                <div *ngIf="estado==2">
+                    <p>EL GANADOR ES LA MAQUINA</p>
+                </div>
+                <DIV *ngIf="estado>=1">
+                    <button (click)="NuevoJuego()" >Nuevo Juego </button>   
+                </DIV>
+            </div>
+         </div>
+        </div>
+        <div class="col">
+          <div class="card shadow-sm">
+            <img src={{this.miImagen}} width="200">   
+          </div>
+        </div>
 
-<div *ngIf="this.intentos<this.intentosMax">
-    <p >Intento: {{this.intentos+1}} - Maximo: {{this.intentosMax}}</p>
-    <label >Palabra secreta a encontrar :</label>
-    <label >{{this.palabra}}</label>
-    <label >{{this.cantidadLetras()}}</label>
-    <label >{{this.guiones}}</label>
-    <br> 
-    
-    <label >Elegir una Letra:</label>
-    <select name="miselect" [(ngModel)]="seleccionado">
-        <option [value]="item" *ngFor='let item of abc'> {{item}} </option>
-    </select>    
-    <button (click)="verificar()" >Jugar</button>
-</div>
-
-
-<br>
-<img src={{this.miImagen}} width="200">
+      </div>
+    </div>
+  </div>
